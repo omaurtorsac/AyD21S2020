@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<!--
+	Horizons by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+{% load staticfiles %}
+	<head>
+		<title>Registro Usuario</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+		<script src="{% static 'js/skel.min.js' %}"></script>
+		<script src="{% static 'js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'js/init.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/skel.css' %}" type="text/css"/>
+    	<link rel="stylesheet" href="{% static 'css/style2.css' %}" type="text/css"/>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+
+		<!-- Header -->
+			<div id="header">
+				<div class="container">
+						
+					<!-- Logo -->
+						<h1><a href="#" id="logo">Reporte 3</a></h1>
+					
+					<nav id="nav">
+							<ul>
+								<li><a href="../registro">Registro</a></li>
+								<li>
+									<a href="">Sesión</a>
+									<ul>
+										<li><a href="../logout">Logout</a></li>
+									</ul>
+								</li>
+								<li>
+                                    <a href="">Reportes</a>
+                                    <ul>
+										<li><a href="../reporte1">Reporte 1</a></li>
+                                        <li><a href="../reporte2">Reporte 2</a></li>
+                                        <li><a href="../reporte3">Reporte 3</a></li>
+                                        <li><a href="../reporte4">Reporte 4</a></li>
+                                        <li><a href="../reporte5">Reporte 5</a></li>
+                                        <li><a href="../reporte6">Reporte 6</a></li>
+									</ul>
+                                </li>
+								<li><a href="../cargar">Cargar</a></li>
+								<li><a href="no-sidebar.html">No Sidebar</a></li>
+							</ul>
+						</nav>
+
+				</div>
+			</div>
+
+		<!-- Main -->
+			<div id="main" class="wrapper style1">
+				<div class="container">
+					<section>
+						<header class="major">
+							<h2>Reporte 3</h2>
+                            <p>Productos con mayor número de ventas a personas solteras, realizadas en el día de pago (15 decada mes) ordenadas de mayor a menor.</p>
+						</header>
+                        <table>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad de venta</th>
+                            </tr>
+                            {%  for a,b in lista1%}
+                            <tr>
+                                <td>
+                                    {{ a }}
+                                </td>
+                                <td>
+                                    {{ b }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+					</section>
+				</div>
+			</div>
+
+	</body>
+</html>
