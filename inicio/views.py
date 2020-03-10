@@ -30,24 +30,27 @@ def adminp(request):
 
 def login(request):
 	form = login2(request.POST)
+	mensaje = "Hola"
 	variables={
 		"form":form,
+		"mensaje":mensaje,
 	}
 	if form.is_valid():
 		datos = form.cleaned_data
 		user = datos.get("usuario")
 		psw = datos.get("password")
 		usuario = auth.authenticate(username = user, password = psw)
-		if user is not None:
+		if usuario is not None:
 			do_login(request,usuario)
 			auth.login(request, usuario)
 			return HttpResponseRedirect('../adminp');
-		mensaje = "Usuario o Password incorrecto"
-		variables = {
-			"form": form,
-			"mensaje": mensaje,
-		}
-				#return render(request, "inicio/login.html", {"form": form, "mensaje": mensaje})   #if user == row[0]:
+		else:
+			mensaje = "Usuario o Password incorrecto"
+			variables = {
+				"form": form,
+				"mensaje": mensaje,
+			}
+			return render(request, "inicio/login.html", {"form": form, "mensaje": mensaje})   #if user == row[0]:
 				#	print("encontro")
 				#else
 				#return render_to_response('inicio/login.html',{"form":form})
